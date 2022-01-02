@@ -17,7 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/addMusic', function () {
+    return view('addMusic');
+});
 
+Route::get('/addSong', function () {
+    return view('addSong',['musicID'=>App\Models\Music::all()]);
+});
+
+Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'])->name('addMusic');
+
+Route::post('/addSong/store',[App\Http\Controllers\SongController::class,'add'])->name('addSong');
 
 Route::get('/index', function () {
     return view('index');
