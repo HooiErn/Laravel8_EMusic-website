@@ -12,4 +12,10 @@ class Song extends Model
     public function Music(){
         return $this->belongsTo('App\Models\Music');
     }
+    public function Artist(){
+        return $this->belongsTo('App\Models\Artist');
+    }
+    public function Album(){
+        return $this->belongsTo('App\Models\Album');
+    }
 }

@@ -6,6 +6,8 @@ use DB;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Music;
+use App\Models\Artist;
+use App\Models\Album;
 use Session;
 
 class SongController extends Controller

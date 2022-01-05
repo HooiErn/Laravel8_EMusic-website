@@ -12,16 +12,25 @@
                 <input type="text" class="form-control" id="songName" name="songName">                
             </div>
             <div class="form-group">
-                <label for="artist">Artist</label>
-                <input type="text" class="form-control" id="artistID" name="artistID">                
+                <label for="catID">Artist</label>
+                <select name="artistID" id="artistID" class="form-control">
+                    @foreach($artistID as $artist)
+                    <option value="{{$artist->id}}">{{$artist->name}}</option>
+                    @endforeach
+</select>
             </div>
+          
             <div class="form-group">
                 <label for="songDescription">Desciption</label>
                 <input type="text" class="form-control" id="songDescription" name="songDescription">                
             </div>
             <div class="form-group">
-                <label for="ablum">Album</label>
-                <input type="text" class="form-control" id="albumID" name="albumID">                
+                <label for="catID">Album</label>
+                <select name="albumID" id="albumID" class="form-control">
+                    @foreach($albumID as $album)
+                    <option value="{{$album->id}}">{{$album->name}}</option>
+                    @endforeach
+</select>
             </div>
             <div class="form-group">
                 <label for="lyrics">Lyrics</label>
