@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Music;
+use Session;
 use Illuminate\Http\Request;
 
 class MusicController extends Controller

@@ -29,6 +29,8 @@ Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'
 
 Route::post('/addSong/store',[App\Http\Controllers\SongController::class,'add'])->name('addSong');
 
+Route::post('/songs',[App\Http\Controllers\SongController::class,'view'])->name('viewSong');
+
 Route::get('/index', function () {
     return view('index');
 });
