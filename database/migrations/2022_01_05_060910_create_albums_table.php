@@ -21,6 +21,7 @@ class CreateAlbumsTable extends Migration
             $table->string('coverImage');
             $table->string('description');
             $table->double('price',8,2);
+            $table->string('dataReleased');        
             $table->timestamps();
         });
     }
