@@ -16,9 +16,6 @@ class CreateArtistsTable extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('songID');
-            $table->integer('albumID');
-            $table->string('description');
             $table->timestamps();
         });
     }

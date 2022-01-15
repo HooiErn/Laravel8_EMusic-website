@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Artist extends Model
 {
     use HasFactory;
-    protected $fillable=['name','songID','albumID','description'];
+    protected $fillable=['name'];
     public function artist(){
         return $this->hasMany('App\Models\Song');
     }

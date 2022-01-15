@@ -13,9 +13,6 @@ class ArtistController extends Controller
         $r=request();
         $addArtist=Artist::create([
             'name'=>$r->artistName,
-            'songID'=>$r->songID,
-            'albumID'=>$r->albumID,
-            'description'=>$r->songDescription,
         ]);
         Session::flash('success',"Artist create successfully!");
         Return view('addArtist');

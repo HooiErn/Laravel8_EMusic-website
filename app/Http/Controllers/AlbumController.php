@@ -16,8 +16,7 @@ class AlbumController extends Controller
         $imageName=$coverImage->getClientOriginalName(); 
         $addAlbum=Album::create([
             'name'=>$r->albumName,
-            'songID'=>$r->songID,
-            'artistName'=>$r->artistName,
+            'artistID'=>$r->artistID,
             'coverImage'=>$coverImage,
             'description'=>$r->songDescription,
             'price'=>$r->price,
