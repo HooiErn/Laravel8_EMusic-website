@@ -21,11 +21,6 @@ Route::get('/addMusic', function () {
     return view('addMusic');
 });
 
-Route::get('/addSong', function () {
-    return view('addSong',['musicID'=>App\Models\Music::all()],['artistID'=>App\Models\Artist::all()]
-,['albumID'=>App\Models\Album::all()]);
-});
-
 Route::get('/addAlbum', function () {
     return view('addAlbum');
 });
@@ -34,10 +29,16 @@ Route::get('/addArtist', function () {
     return view('addArtist');
 });
 
+Route::get('/addSong', function () {
+    return view('addSong',['musicID'=>App\Models\Music::all()],['artistID'=>App\Models\Artist::all()]
+,['albumID'=>App\Models\Album::all()]);
+});
 
-Route::post('/addArtist',[App\Http\Controllers\ArtistController::class,'index'])->name('addArtist');
 
-Route::post('/addAlbum',[App\Http\Controllers\AlbumController::class,'index'])->name('addAlbum');
+
+Route::post('/addArtist/store',[App\Http\Controllers\ArtistController::class,'add'])->name('addArtist');
+
+Route::post('/addAlbum/store',[App\Http\Controllers\AlbumController::class,'add'])->name('addAlbum');
 
 
 Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'])->name('addMusic');

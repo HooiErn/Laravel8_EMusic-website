@@ -18,7 +18,6 @@ class CreateSongsTable extends Migration
             $table->string('name');
             $table->string('artistID');
             $table->string('musicID');
-            $table->string('albumID');
             $table->string('description');
             $table->double('duration',2,2);
             $table->timestamps();

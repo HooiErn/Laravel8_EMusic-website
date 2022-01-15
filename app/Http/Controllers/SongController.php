@@ -18,7 +18,6 @@ class SongController extends Controller
             'name'=>$r->songName,
             'musicID'=>$r->musicID,
             'artistID'=>$r->artistID,
-            'albumID'=>$r->albumID,
             'description'=>$r->songDescription,
             'lyrics'=>$r->lyrics,
             'duration'=>$r->duration,
@@ -28,10 +27,9 @@ class SongController extends Controller
     }
     public function view(){
         $viewSong=DB::table('songs')
-        ->leftJoin('albums','songs.albumID','=','albums.id')
         ->leftJoin('artists','songs.artistID','=','artists.id')
         ->leftJoin('music','songs.musicID','=','music.id')
-        ->select('songs.*','albums.name as alName','artists.name as arName','music.name as mName')
+        ->select('songs.*','artists.name as arName','music.name as mName')
         ->get();
 
         return view('showSong')->with('songs',$viewSong);
