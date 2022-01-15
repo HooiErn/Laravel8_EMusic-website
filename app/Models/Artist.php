@@ -12,4 +12,5 @@ class Artist extends Model
     public function artist(){
         return $this->hasMany('App\Models\Song');
     }
+
 }

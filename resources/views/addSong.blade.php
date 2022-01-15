@@ -34,7 +34,8 @@
             </div>
             <div class="form-group">
                 <label for="lyrics">Lyrics</label>
-                <input type="text" class="form-control" id="lyrics" name="lyrics">                
+                <textarea id="lyrics" name="lyrics" rows="4" cols="50">
+</textarea>               
             </div>
            
 
