@@ -17,4 +17,8 @@ class MusicController extends Controller
         Session::flash('success',"Music Type create successfully!");
         Return view('addMusic');
     }
+    public function view(){
+        $viewMusic=Music::all(); //generate SQL SELECT * from category
+        return view('showMusic')->with('music',$viewMusic);
+    }
 }

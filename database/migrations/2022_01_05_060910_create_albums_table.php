@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('songID');
-            $table->string('artistID');
+            $table->string('artistName');
             $table->string('coverImage');
             $table->string('description');
             $table->double('price',8,2);

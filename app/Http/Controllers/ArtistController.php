@@ -20,4 +20,8 @@ class ArtistController extends Controller
         Session::flash('success',"Artist create successfully!");
         Return view('addArtist');
     }
+    public function view(){
+        $viewArtist=Artist::all(); //generate SQL SELECT * from category
+        return view('showArtist')->with('artists',$viewArtist);
+    }
 }

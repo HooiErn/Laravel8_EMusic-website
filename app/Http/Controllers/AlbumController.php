@@ -17,7 +17,7 @@ class AlbumController extends Controller
         $addAlbum=Album::create([
             'name'=>$r->albumName,
             'songID'=>$r->songID,
-            'artistID'=>$r->artistID,
+            'artistName'=>$r->artistName,
             'coverImage'=>$coverImage,
             'description'=>$r->songDescription,
             'price'=>$r->price,
@@ -25,5 +25,9 @@ class AlbumController extends Controller
         ]);
         Session::flash('success',"Album create successfully!");
         Return view('addAlbum');
+    }
+    public function view(){
+        $viewAlbum=Album::all(); //generate SQL SELECT * from category
+        return view('showAlbum')->with('albums',$viewAlbum);
     }
 }
