@@ -18,15 +18,20 @@ class AlbumController extends Controller
             'name'=>$r->albumName,
             'artistID'=>$r->artistID,
             'songID'=>$r->songID,
-            'coverImage'=>$coverImage,
+            'coverImage'=>$imageName,
             'description'=>$r->songDescription,
             'dateReleased'=>$r->dataReleased,
         ]);
         Session::flash('success',"Album create successfully!");
-        Return view('addAlbum');
+        return redirect()->route('showAlbum');
     }
     public function view(){
-        $viewAlbum=Album::all(); //generate SQL SELECT * from category
+        $viewAlbum=DB::table('albums')
+        ->leftJoin('artists','albums.artistID','=','artists.id')
+        ->leftJoin('songs','albums.songID','=','songs.id')
+        ->select('albums.*','artists.name as arName','songs.name as sName')
+        ->get();
+
         return view('showAlbum')->with('albums',$viewAlbum);
     }
 }

@@ -27,8 +27,10 @@ Route::get('/addArtist',function(){
 });
 
 Route::get('/addAlbum',function(){
-    return view('addAlbum',['artistID'=>App\Models\Artist::all()],['songID'=>App\Models\Song::all()]);
+    return view('addAlbum',['songID'=>App\Models\Song::all()],['artistID'=>App\Models\Artist::all()]);
 });
+
+Route::get('/showAlbum',[App\Http\Controllers\AlbumController::class,'view'])->name('showAlbum');
 
 Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'])->name('addMusic');
 

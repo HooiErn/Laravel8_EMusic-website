@@ -5,7 +5,7 @@
     <div class="col-sm-6">
         <br><br>
         <h3>Create New Album</h3>
-        <form action="{{ route('addAlbum') }}" method="POST">
+        <form action="{{ route('addAlbum') }}" method="POST" enctype="multipart/form-data">
             @CSRF
             <div class="form-group">
                 <label for="albumName">Album Name</label>
@@ -17,14 +17,15 @@
                     @foreach($songID as $song)
                     <option value="{{$song->id}}">{{$song->name}}</option>
                     @endforeach
-</select>
-<div class="form-group">
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="artistID">Artist</label>
                 <select name="artistID" id="artistID" class="form-control">
                     @foreach($artistID as $artist)
                     <option value="{{$artist->id}}">{{$artist->name}}</option>
                     @endforeach
-</select>
+                </select>
             </div>
             <div class="form-group">
                 <label for="coverImage">Image</label>
