@@ -13,7 +13,10 @@ use Session;
 class SongController extends Controller
 {
     public function add(){
-        $r=request();  
+        $r=request();
+        $songFile=$r->file('file');        
+        $songFile->move('songmp3',$songFile->getClientOriginalName());   //images is the location                
+        $fileName=$songFile->getClientOriginalName();   
         $addSong=Song::create([
             'name'=>$r->songName,
             'musicID'=>$r->musicID,
@@ -21,10 +24,12 @@ class SongController extends Controller
             'description'=>$r->songDescription,
             'lyrics'=>$r->lyrics,
             'duration'=>$r->duration,
+            'file'=>$fileName,
         ]);
         Session::flash('success',"Song create successfully!");
-        Return redirect()->route('showSong');
+        return redirect()->route('showSong');
     }
+
     public function view(){
         $viewSong=DB::table('songs')
         ->leftJoin('artists','songs.artistID','=','artists.id')
@@ -34,4 +39,5 @@ class SongController extends Controller
 
         return view('showSong')->with('songs',$viewSong);
     }
+
 }

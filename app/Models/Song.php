@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Song extends Model
 {
     use HasFactory;
-    protected $fillable=['name','musicID','artistID','albumID','description','lyrics','duration'];
+    protected $fillable=['name','musicID','artistID','description','lyrics','duration','file'];
     public function Music(){
         return $this->belongsTo('App\Models\Music');
     }

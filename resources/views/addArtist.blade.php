@@ -5,7 +5,7 @@
     <div class="col-sm-6">
         <br><br>
         <h3>Add Artist</h3>
-        <form action="{{ route('addArtist') }}" method="POST">
+        <form action="{{route('addArtist')}}" method="POST">
             @CSRF
             <div class="form-group">
                 <label for="artistName">Artist Name</label>

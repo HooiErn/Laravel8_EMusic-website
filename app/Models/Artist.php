@@ -9,8 +9,11 @@ class Artist extends Model
 {
     use HasFactory;
     protected $fillable=['name'];
-    public function artist(){
+    public function song(){
         return $this->hasMany('App\Models\Song');
     }
 
+    public function album(){
+        return $this->hasMany('App\Models\Album');
+    }
 }

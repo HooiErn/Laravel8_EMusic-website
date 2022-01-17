@@ -18,8 +18,10 @@ class CreateSongsTable extends Migration
             $table->string('name');
             $table->string('artistID');
             $table->string('musicID');
+            $table->longText('lyrics');
             $table->string('description');
-            $table->double('duration',2,2);
+            $table->double('duration',3,2);
+            $table->string('file');
             $table->timestamps();
         });
     }

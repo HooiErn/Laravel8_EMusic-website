@@ -17,9 +17,9 @@ class AlbumController extends Controller
         $addAlbum=Album::create([
             'name'=>$r->albumName,
             'artistID'=>$r->artistID,
+            'songID'=>$r->songID,
             'coverImage'=>$coverImage,
             'description'=>$r->songDescription,
-            'price'=>$r->price,
             'dateReleased'=>$r->dataReleased,
         ]);
         Session::flash('success',"Album create successfully!");

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-use App\Models\Artist;
-use Session;
 use Illuminate\Http\Request;
+use App\Models\Artist;
+use DB;
+use Session;
 
 class ArtistController extends Controller
 {
@@ -17,6 +17,7 @@ class ArtistController extends Controller
         Session::flash('success',"Artist create successfully!");
         Return view('addArtist');
     }
+
     public function view(){
         $viewArtist=Artist::all(); //generate SQL SELECT * from category
         return view('showArtist')->with('artists',$viewArtist);

@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,35 +18,27 @@ Route::get('/addMusic', function () {
     return view('addMusic');
 });
 
-Route::get('/addAlbum', function () {
-    return view('addAlbum');
+Route::get('/addSong', function () {
+    return view('addSong',['musicID'=>App\Models\Music::all()],['artistID'=>App\Models\Artist::all()]);
 });
 
-Route::get('/addArtist', function () {
+Route::get('/addArtist',function(){
     return view('addArtist');
 });
 
-Route::get('/addSong', function () {
-    return view('addSong',['musicID'=>App\Models\Music::all()],['artistID'=>App\Models\Artist::all()]
-,['albumID'=>App\Models\Album::all()]);
+Route::get('/addAlbum',function(){
+    return view('addAlbum',['artistID'=>App\Models\Artist::all()],['songID'=>App\Models\Song::all()]);
 });
-
-
-
-Route::post('/addArtist/store',[App\Http\Controllers\ArtistController::class,'add'])->name('addArtist');
-
-Route::post('/addAlbum/store',[App\Http\Controllers\AlbumController::class,'add'])->name('addAlbum');
-
 
 Route::post('/addMusic/store',[App\Http\Controllers\MusicController::class,'add'])->name('addMusic');
 
 Route::post('/addSong/store',[App\Http\Controllers\SongController::class,'add'])->name('addSong');
 
-Route::post('/addArtist/store',[App\Http\Controllers\ArtistController::class,'add'])->name('addArtist');
+Route::post('/addArtist',[App\Http\Controllers\ArtistController::class,'add'])->name('addArtist');
 
-Route::post('/addAlbum/store',[App\Http\Controllers\AlbumController::class,'add'])->name('addAlbum');
+Route::post('/addAlbum',[App\Http\Controllers\AlbumController::class,'add'])->name('addAlbum');
 
-Route::post('/songs',[App\Http\Controllers\SongController::class,'view'])->name('showSong');
+Route::get('/songs',[App\Http\Controllers\SongController::class,'view'])->name('showSong');
 
 Route::get('/showMusic',[App\Http\Controllers\MusicController::class,'view'])->name('showMusic');
 
@@ -62,6 +51,5 @@ Route::get('/index', function () {
 });
 
 Auth::routes();
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
