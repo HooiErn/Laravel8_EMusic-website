@@ -26,7 +26,7 @@
                     <td>{{$song->name}}</td>
                     <td>{{$song->description}}</td>
                     <td>{{$song->arName}}</td>
-                    <td>{{$song->name}}</td>
+                    <td>{{$song->mName}}</td>
                     <td>{{$song->lyrics}}</td>
                     <td>{{$song->duration}}</td>
                     <td><a href="{{route('editSong',['id'=>$song->id])}}" class="btn btn-warning btn-xs">Edit</a>

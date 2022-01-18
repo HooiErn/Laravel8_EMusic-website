@@ -75,5 +75,19 @@ class SongController extends Controller
         Session::flash('success',"Song was deleted successfully!");
         return redirect()->route('showSong');
     }
+    
+    public function songdetail($id){
+        $songs=Song::all()->where('id',$id);
+        return view('songDetail')->with('songs',$songs);
+    }
+
+    public function viewSong(){
+        $songs=DB::table('songs')
+        ->leftJoin('artists','songs.artistID','=','artists.id')
+        ->leftJoin('music','songs.musicID','=','music.id')
+        ->select('songs.*','artists.name as arName','music.name as mName')
+        ->get();
+        return view('viewSong')->with('songs',$songs);
+}
 
 }

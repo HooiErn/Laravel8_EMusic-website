@@ -57,11 +57,12 @@ Route::get('/deleteSong/{id}',[App\Http\Controllers\SongController::class,'delet
 
 Route::get('/deleteAlbum/{id}',[App\Http\Controllers\AlbumController::class,'delete'])->name('deleteAlbum');
 
-
-
 Route::get('/editAlbum/{id}',[App\Http\Controllers\AlbumController::class,'edit'])->name('editAlbum');
 
 Route::post('/updateAlbum',[App\Http\Controllers\AlbumController::class,'update'])->name('updateAlbum');
+
+Route::get('/songs',[App\Http\Controllers\SongController::class,'viewSong'])->name('viewSong');
+
 
 Auth::routes();
 
