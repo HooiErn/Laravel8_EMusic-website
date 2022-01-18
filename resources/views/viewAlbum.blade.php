@@ -5,7 +5,9 @@
          @foreach($albums as $album)  
             <div class="col-sm-3" style="background-color:white;margin:10px;
             padding:10px;">       
-                    <tr>                      
+                    <tr>
+                    <td><img src="{{ asset('images/' . $album->coverImage)}}" width="300"
+                     class="img-fluid" alt=""/></td><br><br>      
                        <h4><b><td>{{$album->name}}</td><br></b></h4> 
                         <td>Artist:{{$album->arName}}</td><br>
                         <td>Song List:{{$album->sName}}</td><br>

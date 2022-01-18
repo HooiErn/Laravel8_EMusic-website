@@ -71,4 +71,12 @@ class AlbumController extends Controller
         Session::flash('success',"Album was deleted successfully!");
         return redirect()->route('showAlbum');
     }
+    public function viewAlbum(){
+        $albums=DB::table('albums')
+        ->leftJoin('artists','albums.artistID','=','artists.id')
+        ->leftJoin('songs','albums.songID','=','songs.id')
+        ->select('albums.*','artists.name as arName','songs.name as sName')
+        ->get();
+        return view('viewAlbum')->with('albums',$albums);
+}
 }
