@@ -63,6 +63,8 @@ Route::post('/updateAlbum',[App\Http\Controllers\AlbumController::class,'update'
 
 Route::get('/songs',[App\Http\Controllers\SongController::class,'viewSong'])->name('viewSong');
 
+Route::get('/albums',[App\Http\Controllers\AlbumController::class,'viewAlbum'])->name('viewAlbums');
+
 
 Auth::routes();
 

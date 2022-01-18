@@ -76,10 +76,6 @@ class SongController extends Controller
         return redirect()->route('showSong');
     }
     
-    public function songdetail($id){
-        $songs=Song::all()->where('id',$id);
-        return view('songDetail')->with('songs',$songs);
-    }
 
     public function viewSong(){
         $songs=DB::table('songs')
