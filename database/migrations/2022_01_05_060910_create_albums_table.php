@@ -20,7 +20,7 @@ class CreateAlbumsTable extends Migration
             $table->string('artistID');
             $table->string('coverImage');
             $table->string('description');
-            $table->date('dataReleased');        
+            $table->date('dateReleased');        
             $table->timestamps();
         });
     }

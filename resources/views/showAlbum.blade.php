@@ -28,7 +28,8 @@
                     <td>{{$album->arName}}</td>
                     <td>{{$album->sName}}</td>
                     <td>{{$album->dateReleased}}</td>
-                    <td></td>
+                    <td><a href="{{route('editAlbum',['id'=>$album->id])}}" class="btn btn-warning btn-xs">Edit</a>
+                    <a href="{{ route('deleteAlbum',['id'=>$album->id])}}" class="btn btn-danger btn-xs" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

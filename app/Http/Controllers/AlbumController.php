@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Album;
+use App\Models\Song;
+use App\Models\Artist;
 use Session;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,7 @@ class AlbumController extends Controller
             'artistID'=>$r->artistID,
             'songID'=>$r->songID,
             'coverImage'=>$imageName,
-            'description'=>$r->songDescription,
+            'description'=>$r->albumDescription,
             'dateReleased'=>$r->dataReleased,
         ]);
         Session::flash('success',"Album create successfully!");
@@ -33,5 +35,40 @@ class AlbumController extends Controller
         ->get();
 
         return view('showAlbum')->with('albums',$viewAlbum);
+    }
+    public function edit($id){
+
+        $albums=Album::all()->where('id',$id);
+        
+        return view('editAlbum')->with('albums',$albums)
+        ->with('artistID',Artist::all())->with('songID',Song::all());
+    }
+
+    public function update(){
+        $r=request();
+        $albums = Album::find($r->albumID);
+
+        if($r->file('coverImage')!=''){
+            $coverImage->move('images',$coverImage->getClientOriginalName());                
+            $imageName=$coverImage->getClientOriginalName();               
+            $fileName=$songFile->getClientOriginalName();  
+            $albums->coverImage=$fileName;
+        } 
+
+        $albums->name=$r->albumName;
+        $albums->artistID=$r->artistID;
+        $albums->description=$r->albumDescription;
+        $albums->dateReleased=$r->dateReleased;
+        $albums->songID=$r->songID;
+        $albums->save();
+
+        return redirect()->route('showAlbum');
+    }
+    public function delete($id){
+
+        $deleteAlbum=Album::find($id);
+        $deleteAlbum->delete();
+        Session::flash('success',"Album was deleted successfully!");
+        return redirect()->route('showAlbum');
     }
 }

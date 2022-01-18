@@ -19,6 +19,7 @@
                 </tr>
             </thread>
             <tbody>
+                
                 @foreach($songs as $song)
                 <tr>
                     <td>{{$song->id}}</td>
@@ -28,8 +29,10 @@
                     <td>{{$song->name}}</td>
                     <td>{{$song->lyrics}}</td>
                     <td>{{$song->duration}}</td>
-                    <td></td>
+                    <td><a href="{{route('editSong',['id'=>$song->id])}}" class="btn btn-warning btn-xs">Edit</a>
+                    <a href="{{ route('deleteSong',['id'=>$song->id])}}" class="btn btn-danger btn-xs" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
                 </tr>
+                
                 @endforeach
             </tbody>
         </table>

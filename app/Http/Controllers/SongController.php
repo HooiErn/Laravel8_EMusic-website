@@ -39,5 +39,41 @@ class SongController extends Controller
 
         return view('showSong')->with('songs',$viewSong);
     }
+    public function edit($id){
+
+        $songs=Song::all()->where('id',$id);
+        
+        return view('editSong')->with('songs',$songs)
+        ->with('artistID',Artist::all())->with('musicID',Music::all());
+    }
+
+    public function update(){
+        $r=request();
+        $songs = Song::find($r->songID);
+
+        if($r->file('file')!=''){
+            $songFile=$r->file('file');        
+            $songFile->move('songmp3',$songFile->getClientOriginalName());   //images is the location                
+            $fileName=$songFile->getClientOriginalName();  
+            $songs->file=$fileName;
+        } 
+
+        $songs->name=$r->songName;
+        $songs->artistID=$r->artistID;
+        $songs->description=$r->songDescription;
+        $songs->duration=$r->duration;
+        $songs->lyrics=$r->lyrics;
+        $songs->musicID=$r->musicID;
+        $songs->save();
+
+        return redirect()->route('showSong');
+    }
+    public function delete($id){
+
+        $deleteSong=Song::find($id);
+        $deleteSong->delete();
+        Session::flash('success',"Song was deleted successfully!");
+        return redirect()->route('showSong');
+    }
 
 }
