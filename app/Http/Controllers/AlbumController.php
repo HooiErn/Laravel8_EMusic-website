@@ -79,4 +79,5 @@ class AlbumController extends Controller
         ->get();
         return view('viewAlbum')->with('albums',$albums);
 }
+
 }
