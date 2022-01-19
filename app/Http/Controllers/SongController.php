@@ -85,5 +85,19 @@ class SongController extends Controller
         ->get();
         return view('viewSong')->with('songs',$songs);
 }
+public function indexSong($id){
+    $songs=Song::all()->where('id',$id);
+    $artists=Artist::all()->where('id',$id);
+    $albums=Album::all()->where('id',$id);
+    return view('songDetail')->with('songs',$songs)
+    ->with('artists',$artists)->with('albums',$albums);
+}
+public function searchSong(){
+    $r=request();
+    $keyword=$r->keyword;
+    $songs=DB::table('songs')->where('name','like','%'.$keyword.'%')->get();
+
+    return view('viewSong')->with('songs',$songs);
+}
 
 }

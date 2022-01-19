@@ -65,6 +65,14 @@ Route::get('/songs',[App\Http\Controllers\SongController::class,'viewSong'])->na
 
 Route::get('/albums',[App\Http\Controllers\AlbumController::class,'viewAlbum'])->name('viewAlbums');
 
+Route::get('/songDetail/{id}',[App\Http\Controllers\SongController::class,'indexSong'])->name('view.song');
+
+Route::post('/viewSong',[App\Http\Controllers\SongController::class,'searchSong'])->
+name('search.song');
+
+Route::get('/index', function () {
+    return view('index');
+});
 
 Auth::routes();
 

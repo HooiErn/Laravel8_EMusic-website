@@ -66,8 +66,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                     <!--Search-->
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" action="{{route('search.song')}}" method="POST">
+                        @csrf
+                        <input class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                         <!-- Authentication Links -->
