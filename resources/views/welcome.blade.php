@@ -12,8 +12,7 @@
     <title>EMusic</title>
   </head>
   <body>
-
-
+  <div class="bg-secondary text-white">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">EMusic</a>
@@ -60,7 +59,14 @@
     </div>
   </div>
 </nav>
+<!--Content(Slide)-->
 
+<div class="m-2">
+  <br>
+  <h2><b>Today's biggest hits</b></h2>
+  <br>
+</div>
+<center>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -69,13 +75,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://wowslider.com/sliders/demo-77/data1/images/idaho239691_1920.jpg" class="d-block w-80" alt="...">
+      <img src="{{url('/images/welcome.jpeg')}}" class="d-block" alt="..."style="width:80%;height:550px;">
     </div>
     <div class="carousel-item">
-      <img src="https://wowslider.com/sliders/demo-77/data1/images/road220058.jpg" class="d-block w-80" alt="...">
+      <img src="{{url('/images/namewee.jpg')}}" class="d-block" alt="..."style="width:80%;height:550px;">
     </div>
     <div class="carousel-item">
-      <img src="https://wowslider.com/sliders/demo-77/data1/images/field175959_1920.jpg" class="d-block w-180" alt="...">
+      <img src="{{url('/images/Silk_Sonic_-_An_Evening_with_Silk_Sonic.png')}}" class="d-block" alt="..."style="width:80%;height:550px;">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -87,6 +93,11 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+</center>
+<br>
+  </div>
+
+
 
       
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

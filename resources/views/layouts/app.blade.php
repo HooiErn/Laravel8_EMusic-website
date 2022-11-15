@@ -34,17 +34,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item pr-2">
-                            <a class="nav-link" href="#">Home
+                            <a class="nav-link" href="{{ route('home') }}">Home
                             </a>
                           </li>
                           <li class="nav-item  pr-2">
-                            <a class="nav-link" href="#">Playlists</a>
+                            <a class="nav-link" href="{{ route('viewSong') }}">Playlists</a>
                           </li>
                           <li class="nav-item  pr-2">
-                            <a class="nav-link" href="#">Artist</a>
+                            <a class="nav-link" href="s">Artist</a>
                           </li>
                           <li class="nav-item pr-2">
-                            <a class="nav-link" href="#">Album</a>
+                            <a class="nav-link" href="{{route ('viewAlbums')}}">Album</a>
                           </li>
                           <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,8 +66,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                     <!--Search-->
-                    <form class="d-flex" action="{{route('search.song')}}" method="POST">
-                        @csrf
+                    <form class="d-flex" action="{{route('search.song')}}">
                         <input class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>

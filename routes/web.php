@@ -67,7 +67,7 @@ Route::get('/albums',[App\Http\Controllers\AlbumController::class,'viewAlbum'])-
 
 Route::get('/songDetail/{id}',[App\Http\Controllers\SongController::class,'indexSong'])->name('view.song');
 
-Route::post('/viewSong',[App\Http\Controllers\SongController::class,'searchSong'])->
+Route::post('/songs',[App\Http\Controllers\SongController::class,'searchSong'])->
 name('search.song');
 
 Route::get('/index', function () {

@@ -9,6 +9,9 @@ use Session;
 
 class ArtistController extends Controller
 {
+    public function __contruct(){
+        $this->middleware('auth');
+    }
     public function add(){
         $r=request();
         $addArtist=Artist::create([

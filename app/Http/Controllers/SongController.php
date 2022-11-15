@@ -12,6 +12,9 @@ use Session;
 
 class SongController extends Controller
 {
+    public function __contruct(){
+        $this->middleware('auth');
+    }
     public function add(){
         $r=request();
         $songFile=$r->file('file');        

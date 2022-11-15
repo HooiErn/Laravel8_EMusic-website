@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class MusicController extends Controller
 {
+    public function __contruct(){
+        $this->middleware('auth');
+    }
     public function add(){
         $r=request();
         $addMusic=Music::create([
